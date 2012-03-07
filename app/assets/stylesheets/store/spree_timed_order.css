@@ -1,0 +1,7 @@
+/*
+ *= require store/spree_core
+*/
+div.spree_timed_order-timer {
+  font-size: 18px;
+  font-weight: bold;
+}

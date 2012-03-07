@@ -1,0 +1,7 @@
+(function($) {
+  $(document).ready(function() {
+    if (typeof Spree !== 'undefined' && typeof Spree.TimedOrder !== 'undefined' && typeof Spree.TimedOrder.ExpiresAt !== 'undefined') {
+      alert(Spree.TimedOrder.ExpiresAt)
+    }
+  });
+})(jQuery);
