@@ -1,5 +1,0 @@
-<% unless current_order.expired? %>
-<div class="spree_timed_order-timer" data-order-expires-at="<%= current_order.timed_order.expires_at.utc.to_i*1000 %>">
-  Order expires: <%= current_order.timed_order.expires_at.in_time_zone('Eastern Time (US & Canada)') %>
-</div>
-<% end %>

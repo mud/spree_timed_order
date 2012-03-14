@@ -1,0 +1,13 @@
+<span class="timed-order-stock">
+<%
+  number = @product.timed_on_hand
+  if number > 0
+%>
+<%= @product.timed_on_hand %> available
+<%
+  else
+    order = Spree::Order.contains_variant(@product.master).first
+%>
+Currently unavailable. Next release at: <%= order.timed_order.expires_at %>.
+<% end %>
+</span>

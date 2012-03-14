@@ -5,3 +5,7 @@ div.spree_timed_order-timer {
   font-size: 18px;
   font-weight: bold;
 }
+
+span.timed-order-stock {
+  display: block;
+}

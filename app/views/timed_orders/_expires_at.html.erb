@@ -1,0 +1,7 @@
+<script type="text/javascript" charset="utf-8">
+  <% if !current_order.nil? && !current_order.expired? %>
+  if (typeof Spree === 'undefined')
+    var Spree = { TimedOrder: {} };
+  Spree.TimedOrder.ExpiresAt = '<%= current_order.timed_order[:expires_at].getutc.iso8601 %>';
+  <% end %>
+</script>

@@ -3,7 +3,7 @@ module SpreeTimedOrder
     initializer "spree.timed_order.preferences", :after => "spree.environment" do |app|
       SpreeTimedOrder::Config = Spree::TimedOrderConfiguration.new
     end
-  
+
     engine_name 'spree_timed_order'
 
     config.autoload_paths += %W(#{config.root}/lib)

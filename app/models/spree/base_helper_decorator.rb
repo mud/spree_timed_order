@@ -11,9 +11,9 @@ Spree::BaseHelper.module_eval do
     else
       text = "#{text}: (#{current_order.item_count})  <span class='amount'>#{order_subtotal(current_order)}</span>".html_safe
       if current_order.expired?
-        text << " Expired #{time_ago_in_words(current_order.timed_order[:expires_at])} ago"
+        text << " Expired"
       else
-        text << " Valid for #{time_ago_in_words(current_order.timed_order[:expires_at])}"
+        text << " <span id='timer-expire'>#{time_ago_in_words(current_order.timed_order[:expires_at])}</span>".html_safe
       end
       css_class = 'full'
     end

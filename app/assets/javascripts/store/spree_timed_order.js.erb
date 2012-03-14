@@ -1,7 +1,29 @@
 (function($) {
+  var timeLeftInWords = function(expireTime) {
+    var current          = new Date(),
+        totalSecondsLeft = Math.floor((expireTime-current)/1000),
+        minutesLeft      = Math.floor(totalSecondsLeft/60),
+        secondsLeft      = totalSecondsLeft%60;
+    if (secondsLeft < 10) secondsLeft = "0"+secondsLeft;
+    var timeLeftInWords  = minutesLeft + ":" + secondsLeft;
+    if (totalSecondsLeft < 0) {
+      timeLeftInWords = "Expired";
+    }
+    return timeLeftInWords;
+  };
   $(document).ready(function() {
     if (typeof Spree !== 'undefined' && typeof Spree.TimedOrder !== 'undefined' && typeof Spree.TimedOrder.ExpiresAt !== 'undefined') {
-      alert(Spree.TimedOrder.ExpiresAt)
+      var expires = new Date(Spree.TimedOrder.ExpiresAt);
+      var $timerContainer = $('#timer-expire');
+      if ($timerContainer.length > 0) {
+        var timerId = window.setInterval(function() {
+          var left = timeLeftInWords(expires);
+          if (left != "Expired")
+            $timerContainer.text("Expires " + left);
+          else
+            $timerContainer.text(left);
+        }, 100);
+      }
     }
   });
 })(jQuery);
