@@ -7,5 +7,5 @@ div.spree_timed_order-timer {
 }
 
 span.timed-order-stock {
-  display: block;
+  display: inline;
 }

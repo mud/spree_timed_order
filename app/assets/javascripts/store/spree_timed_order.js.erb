@@ -25,5 +25,17 @@
         }, 100);
       }
     }
+    
+    // check for product available
+    if ($('#product-available-at').length) {
+      var availableAt = new Date($('#product-available-at').html());
+      var $availableContainer = $('#product-available-at');
+      var availableTimer = window.setInterval(function() {
+        var l = timeLeftInWords(availableAt);
+        if (l == "Expired")
+          l = "Refresh to check availability";
+        $availableContainer.text(l);
+      }, 100);
+    }
   });
 })(jQuery);

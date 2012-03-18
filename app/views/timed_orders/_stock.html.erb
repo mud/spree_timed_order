@@ -3,11 +3,16 @@
   number = @product.timed_on_hand
   if number > 0
 %>
-<%= @product.timed_on_hand %> available
+/ <%= @product.timed_on_hand %> available
 <%
   else
     order = Spree::Order.contains_variant(@product.master).first
 %>
-Currently unavailable. Next release at: <%= order.timed_order.expires_at %>.
+  <% if @product.on_hand > 0 %>
+  Currently unavailable.
+  <% if !order.nil? && !order.timed_order.nil? %>
+    Next release in: <span id="product-available-at"><%= order.timed_order.expires_at.getutc.iso8601 %></span>.
+  <% end %>
+  <% end %>
 <% end %>
 </span>
