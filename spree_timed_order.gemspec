@@ -2,9 +2,9 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_timed_order'
-  s.version     = '1.0.0'
-  s.summary     = 'TODO: Add gem summary here'
-  s.description = 'TODO: Add (optional) gem description here'
+  s.version     = '0.1.0'
+  s.summary     = 'Spree Extension: enables order to expire after a certain time.'
+  s.description = ''
   s.required_ruby_version = '>= 1.8.7'
 
   s.author            = 'Takashi Okamoto'
