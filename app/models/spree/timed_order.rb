@@ -21,6 +21,10 @@ module Spree
         end
         Rails.logger.debug(["[Spree::TimedOrder Increase Expire]", current_order.timed_order.expires_at].join(" "))
       end
+      
+      def contents_changed_to_order(current_order)
+        
+      end
     end
   end
 end

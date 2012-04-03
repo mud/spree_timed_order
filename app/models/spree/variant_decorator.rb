@@ -8,9 +8,4 @@ Spree::Variant.class_eval do
      self.on_hand
     end
   end
-  
-  # override in_stock? and use the timed_on_hand instead of on_hand
-  def in_stock?
-    Spree::Config[:track_inventory_levels] ? timed_on_hand > 0 : true
-  end
 end
