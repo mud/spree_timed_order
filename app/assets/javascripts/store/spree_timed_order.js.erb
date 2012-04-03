@@ -32,8 +32,13 @@
       var $availableContainer = $('#product-available-at');
       var availableTimer = window.setInterval(function() {
         var l = timeLeftInWords(availableAt);
-        if (l == "Expired")
-          l = "Refresh to check availability";
+        if (l == "Expired") {
+          window.clearInterval(availableTimer);
+          l = "Refreshing...";
+          window.setTimeout(function() {
+            window.location.reload(true);
+          }, 2000);
+        }
         $availableContainer.text(l);
       }, 100);
     }
